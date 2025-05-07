@@ -1,11 +1,9 @@
-const initialState = []; // faqat array!
-
-// Umumiy narxni hisoblash uchun yordamchi funksiya
+const initialState = [];
 const calculateTotalPrice = (cart) => {
   return cart.reduce((total, item) => {
     if (!item.price || !item.amount) {
       console.error("Item data is missing", item);
-      return total; // umumiy narxni o'zgartirmaslik uchun
+      return total;
     }
     return total + item.price * item.amount;
   }, 0);
@@ -34,8 +32,6 @@ export default function cartReducer(state = initialState, action) {
       return state;
   }
 }
-
-// Umumiy narxni olish
 export const getTotalPrice = (state) => {
   return calculateTotalPrice(state.cart2);
 };
